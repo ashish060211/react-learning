@@ -64,14 +64,6 @@ class App extends Component {
 
   render () {
     // for inline style pseudo selectors like hover, media query etc will not work.
-    const style = {
-      padding : '8px',
-      font:'calibri',
-      border:'1px solid blue',
-      backgroundColor : 'green',
-      color:'white',
-      cursor:'pointer'
-    }
     const classesArr = [];//'red', 'bold'
     if(this.state.persons.length <=2) {
       classesArr.push(classes.red);
@@ -81,6 +73,7 @@ class App extends Component {
     }
 
     let persons = null;
+    let btnClass = '';
     if(this.state.showPersons) {
       persons = (
       <div> {
@@ -95,13 +88,14 @@ class App extends Component {
       }
        </div>
       );
-      style.backgroundColor='red';
+      btnClass = classes.Red;
     } 
     return (
       <div className={classes.App}>
        <h1>I am a React App</h1>
        <p className={classesArr.join(' ')}> This is really working!!</p>
-       <button style = {style} onClick={this.toggleShowPersons} >Toggle</button>< br/>
+       <button className={btnClass}
+       onClick={this.toggleShowPersons} >Toggle</button>< br/>
        { persons }
       </div>
     );
