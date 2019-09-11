@@ -20,10 +20,6 @@ class App extends Component {
     showPersons: false
   }
 
-  static getDerivedStateFromProps(props, state) {
-    console.log('[App.js] getDerivedStateFromProps', props  );
-  }
-
   switchnameHandler = (sirName) => {
     this.setState({
       persons: [
@@ -58,9 +54,14 @@ class App extends Component {
     this.setState({ persons: persons });
   }
 
-  componentWillMount() {
-    console.log('[App.js] componentWillMount');
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props  );
+    return state;
   }
+
+  // componentWillMount() {
+  //   console.log('[App.js] componentWillMount');
+  // }
 
   componentDidMount() {
     console.log('[App.js] componentDidMount');
